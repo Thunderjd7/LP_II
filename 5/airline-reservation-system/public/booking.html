@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Flight</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            AIRINDIA Airlines
+        </div>
+
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="booking.html">Book Flight</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+    </nav>
+
+    <div class="main-container">
+
+        <div class="booking-card">
+
+            <a href="index.html" class="back-btn">
+                ← Back
+            </a>
+
+            <h2>Flight Booking</h2>
+
+            <form id="bookingForm">
+
+                <label>Name</label>
+                <input type="text" id="passengerName" placeholder="Enter Name" required>
+
+                <label>From</label>
+                <input type="text" id="fromCity" placeholder="Departure City" required>
+
+                <label>To</label>
+                <input type="text" id="toCity" placeholder="Destination City" required>
+
+                <label>Date</label>
+                <input type="date" id="travelDate" required>
+
+                <button type="submit">
+                    Book Now
+                </button>
+
+            </form>
+
+            <div id="bookingDetails" class="booking-details">
+                <h3>Booking Details</h3>
+                <p><strong>Name:</strong> <span id="detailName"></span></p>
+                <p><strong>From:</strong> <span id="detailFrom"></span></p>
+                <p><strong>To:</strong> <span id="detailTo"></span></p>
+                <p><strong>Date:</strong> <span id="detailDate"></span></p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
