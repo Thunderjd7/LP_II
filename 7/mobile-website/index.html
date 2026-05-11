@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CityGo Mobile Website</title>
+
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <style>
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
+                        url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80");
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 55px 18px;
+            text-align: center;
+            text-shadow: 0 1px 3px #000;
+        }
+
+        .hero h2 {
+            margin: 0 0 10px;
+            font-size: 30px;
+        }
+
+        .section-title {
+            margin-top: 20px;
+        }
+
+        .offer-box {
+            background: #eef7ff;
+            border-left: 5px solid #0b7dda;
+            padding: 14px;
+            border-radius: 6px;
+            margin: 15px 0;
+        }
+
+        .place-img {
+            width: 100%;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .status {
+            color: #087a2f;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div data-role="page" id="home">
+        <div data-role="panel" id="menuPanel">
+            <h3>CityGo Menu</h3>
+            <a href="#home" class="ui-btn ui-icon-home ui-btn-icon-left" data-transition="slide">Home</a>
+            <a href="#places" class="ui-btn ui-icon-location ui-btn-icon-left" data-transition="slide">Places</a>
+            <a href="#booking" class="ui-btn ui-icon-calendar ui-btn-icon-left" data-transition="flip">Booking</a>
+            <a href="#contact" class="ui-btn ui-icon-phone ui-btn-icon-left" data-transition="pop">Contact</a>
+        </div>
+
+        <div data-role="header" data-position="fixed">
+            <a href="#menuPanel" class="ui-btn ui-icon-bars ui-btn-icon-notext">Menu</a>
+            <h1>CityGo</h1>
+        </div>
+
+        <div role="main" class="ui-content">
+            <div class="hero">
+                <h2>Explore Your City</h2>
+                <p>Find places, plan a visit, and book from your mobile.</p>
+            </div>
+
+            <h3 class="section-title">Quick Actions</h3>
+            <div class="ui-grid-b">
+                <div class="ui-block-a">
+                    <a href="#places" class="ui-btn ui-icon-location ui-btn-icon-top" data-transition="slide">Places</a>
+                </div>
+                <div class="ui-block-b">
+                    <a href="#booking" class="ui-btn ui-icon-calendar ui-btn-icon-top" data-transition="flip">Book</a>
+                </div>
+                <div class="ui-block-c">
+                    <a href="#contact" class="ui-btn ui-icon-phone ui-btn-icon-top" data-transition="pop">Contact</a>
+                </div>
+            </div>
+
+            <div class="offer-box">
+                <h3>Today Offer</h3>
+                <p>Get 20% off on city tour booking.</p>
+                <button id="offerButton" class="ui-btn ui-icon-star ui-btn-icon-left">Claim Offer</button>
+                <p id="offerResult" class="status"></p>
+            </div>
+        </div>
+
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#home" class="ui-btn-active ui-state-persist" data-icon="home">Home</a></li>
+                    <li><a href="#places" data-icon="location">Places</a></li>
+                    <li><a href="#booking" data-icon="calendar">Book</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div data-role="page" id="places">
+        <div data-role="header" data-position="fixed">
+            <a href="#home" class="ui-btn ui-icon-home ui-btn-icon-left" data-transition="slidefade">Home</a>
+            <h1>Places</h1>
+        </div>
+
+        <div role="main" class="ui-content">
+            <h2>Popular Places</h2>
+
+            <ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Search places">
+                <li>
+                    <a href="#placeDetails" data-transition="slide">
+                        <img src="https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba?auto=format&fit=crop&w=200&q=80" alt="Lake">
+                        <h2>City Lake</h2>
+                        <p>Boating, garden walk, and sunset point.</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#placeDetails" data-transition="slide">
+                        <img src="https://images.unsplash.com/photo-1444723121867-7a241cacace9?auto=format&fit=crop&w=200&q=80" alt="Museum">
+                        <h2>History Museum</h2>
+                        <p>Local culture, art, and weekend events.</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#placeDetails" data-transition="slide">
+                        <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=200&q=80" alt="Hill">
+                        <h2>Green Hill</h2>
+                        <p>Trekking route and morning viewpoint.</p>
+                    </a>
+                </li>
+            </ul>
+
+            <div data-role="collapsible">
+                <h3>Why use CityGo?</h3>
+                <p>CityGo helps visitors browse places, check details, and submit a simple booking request.</p>
+            </div>
+        </div>
+
+        <div data-role="footer" data-position="fixed">
+            <h4>CityGo Places</h4>
+        </div>
+    </div>
+
+    <div data-role="page" id="placeDetails">
+        <div data-role="header">
+            <a href="#places" class="ui-btn ui-icon-back ui-btn-icon-left" data-transition="slide" data-direction="reverse">Back</a>
+            <h1>Details</h1>
+        </div>
+
+        <div role="main" class="ui-content">
+            <h2>City Lake</h2>
+            <img class="place-img" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="City Lake">
+            <p>City Lake is a peaceful place for family trips, evening walks, photography, and boating.</p>
+
+            <div data-role="controlgroup" data-type="horizontal">
+                <a href="#booking" class="ui-btn ui-icon-calendar ui-btn-icon-left" data-transition="flip">Book</a>
+                <a href="#contact" class="ui-btn ui-icon-phone ui-btn-icon-left" data-transition="pop">Ask</a>
+            </div>
+        </div>
+    </div>
+
+    <div data-role="page" id="booking">
+        <div data-role="header" data-position="fixed">
+            <a href="#home" class="ui-btn ui-icon-home ui-btn-icon-left" data-transition="slidefade">Home</a>
+            <h1>Booking</h1>
+        </div>
+
+        <div role="main" class="ui-content">
+            <h2>Book City Tour</h2>
+
+            <form id="bookingForm">
+                <label for="visitorName">Name</label>
+                <input type="text" id="visitorName" placeholder="Enter your name" required>
+
+                <label for="placeName">Select Place</label>
+                <select id="placeName">
+                    <option>City Lake</option>
+                    <option>History Museum</option>
+                    <option>Green Hill</option>
+                </select>
+
+                <label for="visitDate">Date</label>
+                <input type="date" id="visitDate" required>
+
+                <label for="peopleCount">Number of People</label>
+                <input type="range" id="peopleCount" min="1" max="10" value="2">
+
+                <button type="submit" class="ui-btn ui-icon-check ui-btn-icon-left">Confirm Booking</button>
+            </form>
+
+            <div id="bookingResult" class="offer-box" style="display:none;"></div>
+        </div>
+
+        <div data-role="footer" data-position="fixed">
+            <h4>Book Your Visit</h4>
+        </div>
+    </div>
+
+    <div data-role="page" id="contact">
+        <div data-role="header" data-position="fixed">
+            <a href="#home" class="ui-btn ui-icon-home ui-btn-icon-left" data-transition="slidefade">Home</a>
+            <h1>Contact</h1>
+        </div>
+
+        <div role="main" class="ui-content">
+            <h2>Contact Us</h2>
+            <p>Email: support@citygo.com</p>
+            <p>Phone: +91 98765 43210</p>
+
+            <form id="contactForm">
+                <label for="contactName">Name</label>
+                <input type="text" id="contactName" required>
+
+                <label for="message">Message</label>
+                <textarea id="message" required></textarea>
+
+                <button type="submit" class="ui-btn ui-icon-mail ui-btn-icon-left">Send Message</button>
+            </form>
+
+            <p id="contactResult" class="status"></p>
+        </div>
+
+        <div data-role="footer" data-position="fixed">
+            <h4>CityGo Contact</h4>
+        </div>
+    </div>
+
+    <script>
+        $(document).on("pagecreate", "#home", function() {
+            $("#offerButton").on("click", function() {
+                $("#offerResult").text("Offer claimed successfully.");
+            });
+        });
+
+        $(document).on("pagecreate", "#booking", function() {
+            $("#bookingForm").on("submit", function(event) {
+                event.preventDefault();
+
+                var details = "<h3>Booking Confirmed</h3>" +
+                    "<p><strong>Name:</strong> " + $("#visitorName").val() + "</p>" +
+                    "<p><strong>Place:</strong> " + $("#placeName").val() + "</p>" +
+                    "<p><strong>Date:</strong> " + $("#visitDate").val() + "</p>" +
+                    "<p><strong>People:</strong> " + $("#peopleCount").val() + "</p>";
+
+                $("#bookingResult").html(details).show();
+            });
+        });
+
+        $(document).on("pagecreate", "#contact", function() {
+            $("#contactForm").on("submit", function(event) {
+                event.preventDefault();
+                $("#contactResult").text("Message sent successfully.");
+            });
+        });
+    </script>
+
+</body>
+</html>
